@@ -1,7 +1,7 @@
 import 'dart:math' as math;
 
+import 'package:draweranimationsample/screens/drawer_content_widget.dart';
 import 'package:flutter/material.dart';
-
 
 class FlipDrawerPage extends StatefulWidget {
   @override
@@ -47,6 +47,7 @@ class _FlipDrawerPageState extends State<FlipDrawerPage>
     var blueContainer = Container(
       width: maxSlide,
       color: Colors.blue,
+      child: MyDrawer(),
     );
 
     return Scaffold(
@@ -84,13 +85,15 @@ class _FlipDrawerPageState extends State<FlipDrawerPage>
                       .top,
                   left: (8 * (1 - _animationController.value)) +
                       _animationController.value * maxSlide,
-                  child: IconButton(
-                    iconSize: 32,
-                    color: Colors.black,
-                    onPressed: () {
-                      _toggle();
-                    },
-                    icon: Icon(Icons.list),
+                  child: InkWell(
+                    onTap: _toggle,
+                    child: Padding(
+                        padding: EdgeInsets.all(4),
+                        child: Icon(
+                          Icons.list,
+                          size: 30,
+                          color: Colors.black,
+                        )),
                   ),
                 ),
                 Positioned(
@@ -107,7 +110,7 @@ class _FlipDrawerPageState extends State<FlipDrawerPage>
                       .of(context)
                       .size
                       .width,
-                  child: Text("Animation Sample",
+                  child: Text("Drawer Animation Sample",
                       textAlign: TextAlign.center,
                       style: Theme
                           .of(context)

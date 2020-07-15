@@ -38,36 +38,39 @@ class MyHomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        centerTitle: true,
         title: Text("Drawer Animation Sample"),
       ),
       body: Padding(
         padding: EdgeInsets.all(16),
-        child: Column(
-          children: <Widget>[
-            RaisedButton(
-              onPressed: () {
-                Navigator.of(context).push(
-                  MaterialPageRoute(builder: (BuildContext context) {
-                    return FlipDrawerPage();
-                  }),
-                );
-              },
-              child: Text("Flip Drawer"),
-            ),
-            SizedBox(
-              height: 20,
-            ),
-            RaisedButton(
-              onPressed: () {
-                Navigator.of(context).push(
-                  MaterialPageRoute(builder: (BuildContext context) {
-                    return ScaledDrawerPage();
-                  }),
-                );
-              },
-              child: Text("Scaled Drawer"),
-            ),
-          ],
+        child: Center(
+          child: Column(
+            children: <Widget>[
+              RaisedButton(
+                onPressed: () {
+                  Navigator.of(context).push(
+                    MaterialPageRoute(builder: (BuildContext context) {
+                      return FlipDrawerPage();
+                    }),
+                  );
+                },
+                child: Text("Flip Drawer"),
+              ),
+              SizedBox(
+                height: 16,
+              ),
+              RaisedButton(
+                onPressed: () {
+                  Navigator.of(context).push(
+                    MaterialPageRoute(builder: (BuildContext context) {
+                      return ScaledDrawerPage();
+                    }),
+                  );
+                },
+                child: Text("Scaled Drawer"),
+              ),
+            ],
+          ),
         ),
       ),
     );

@@ -1,3 +1,4 @@
+import 'package:draweranimationsample/screens/drawer_content_widget.dart';
 import 'package:flutter/material.dart';
 
 class ScaledDrawerPage extends StatefulWidget {
@@ -71,7 +72,28 @@ class _ScaledDrawerPageState extends State<ScaledDrawerPage>
                                   size: 30,
                                   color: Colors.black,
                                 ))),
-                      )
+                      ),
+                      Positioned(
+                        top: 10 + MediaQuery
+                            .of(context)
+                            .padding
+                            .top,
+                        left: _animationController.value *
+                            MediaQuery
+                                .of(context)
+                                .size
+                                .width,
+                        width: MediaQuery
+                            .of(context)
+                            .size
+                            .width,
+                        child: Text("Drawer Animation Sample",
+                            textAlign: TextAlign.center,
+                            style: Theme
+                                .of(context)
+                                .textTheme
+                                .headline6),
+                      ),
                     ],
                   ),
                 ),
@@ -79,49 +101,6 @@ class _ScaledDrawerPageState extends State<ScaledDrawerPage>
             ],
           );
         },
-      ),
-    );
-  }
-}
-
-class MyDrawer extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Material(
-      color: Colors.blueAccent,
-      child: SafeArea(
-        child: Theme(
-          data: ThemeData(brightness: Brightness.dark),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisSize: MainAxisSize.max,
-            children: [
-              SizedBox(
-                height: 30,
-              ),
-              ListTile(
-                leading: Icon(Icons.list),
-                title: Text('Categories'),
-              ),
-              ListTile(
-                leading: Icon(Icons.star),
-                title: Text('Favourites'),
-              ),
-              ListTile(
-                leading: Icon(Icons.map),
-                title: Text('Map'),
-              ),
-              ListTile(
-                leading: Icon(Icons.settings),
-                title: Text('Settings'),
-              ),
-              ListTile(
-                leading: Icon(Icons.person),
-                title: Text('Profile'),
-              ),
-            ],
-          ),
-        ),
       ),
     );
   }
