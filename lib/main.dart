@@ -40,14 +40,15 @@ class MyHomePage extends StatelessWidget {
       appBar: AppBar(
         title: Text("Drawer Animation Sample"),
       ),
-      body: Center(
+      body: Padding(
+        padding: EdgeInsets.all(16),
         child: Column(
           children: <Widget>[
             RaisedButton(
               onPressed: () {
                 Navigator.of(context).push(
                   MaterialPageRoute(builder: (BuildContext context) {
-                    return FlipDrawer();
+                    return FlipDrawerPage();
                   }),
                 );
               },
