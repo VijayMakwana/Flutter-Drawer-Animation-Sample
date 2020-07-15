@@ -61,7 +61,7 @@ class MyHomePage extends StatelessWidget {
               onPressed: () {
                 Navigator.of(context).push(
                   MaterialPageRoute(builder: (BuildContext context) {
-                    return ScaledDrawer();
+                    return ScaledDrawerPage();
                   }),
                 );
               },
